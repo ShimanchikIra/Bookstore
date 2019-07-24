@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
@@ -10,6 +9,11 @@ import { SignUpComponent } from './authorization/sign-up/sign-up.component';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RestorePasswordComponent } from './authorization/restore-password/restore-password.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FixDirective } from './fix.directive';
+
 
 const itemRoutes: Routes = [
   { path: 'sign-in', component: SignInComponent},
@@ -25,7 +29,10 @@ const appRoutes: Routes = [
     AuthorizationComponent,
     SignInComponent,
     SignUpComponent,
-    RestorePasswordComponent
+    RestorePasswordComponent,
+    HeaderComponent,
+    FooterComponent,
+    FixDirective
   ],
   imports: [
     BrowserModule,
@@ -38,9 +45,9 @@ const appRoutes: Routes = [
     MatIconModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
