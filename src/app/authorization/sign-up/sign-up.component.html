@@ -1,0 +1,28 @@
+<h1 class="main-title">Sign Up</h1>
+<!--<button class="google-btn">-->
+<!--  <img class="google-btn__img" src="assets/img/new-google-favicon-512.svg" alt="google-icon">-->
+<!--  Sign Up With Google-->
+<!--</button>-->
+<form class="sign-up" [formGroup]="signUpForm" (ngSubmit)="addCustom()">
+  <mat-form-field class="sign-up__field">
+    <input matInput placeholder="First name" [formControl]="firstName">
+    <mat-error *ngIf="firstName.invalid">{{getErrorMessage(firstName)}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="sign-up__field">
+    <input matInput placeholder="Last name" [formControl]="lastName">
+    <mat-error *ngIf="lastName.invalid">{{getErrorMessage(lastName)}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="sign-up__field">
+    <input matInput placeholder="Email" [formControl]="email">
+    <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="sign-up__field">
+    <input matInput placeholder="Password" [formControl]="password" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+  </mat-form-field>
+  <button class="sign-up__btn" mat-raised-button color="primary" [disabled]="signUpForm.invalid">Sign up</button>
+</form>
+<p class="goto-sign-in">Already have an account? <a href="#" class="goto-sign-in__link" routerLink="/authorization/sign-in">Sign In</a></p>

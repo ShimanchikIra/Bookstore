@@ -1,0 +1,24 @@
+<h1 class="main-title">Sign In</h1>
+<!--<button class="google-btn">-->
+<!--  <img class="google-btn__img" src="assets/img/new-google-favicon-512.svg" alt="google-icon">-->
+<!--  Sign Up With Google-->
+<!--</button>-->
+<form class="sign-in" [formGroup]="signInForm" (ngSubmit)="addCustom()">
+  <mat-form-field class="sign-in__field">
+    <input matInput placeholder="Email" [formControl]="email">
+    <mat-error *ngIf="email.invalid">{{getErrorMessage(email)}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="sign-in__field">
+    <input matInput placeholder="Password" [formControl]="password" [type]="hide ? 'password' : 'text'">
+    <div matSuffix class="check-password">
+      <a href="#" class="check-password__link" routerLink="/authorization/restore-password">Forgot password?</a>
+         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </div>
+    <mat-error *ngIf="password.invalid">{{getErrorMessage(password)}}</mat-error>
+  </mat-form-field>
+  <button class="sign-in__btn" mat-raised-button color="primary" [disabled]="signInForm.invalid">Sign in</button>
+</form>
+<p class="goto-sign-up">I don't have account. <a href="#" class="goto-sign-up__link" routerLink="/authorization/sign-up">Sign Up</a></p>
+

@@ -1,0 +1,26 @@
+@import "../../../styles.scss";
+
+.sign-in {
+  width: 100%;
+  padding: 40px 0;
+  &__field{
+    width: 100%;
+  }
+  .check-password{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    &__link{
+      font-size: 12px;
+      color: $main-color;
+    }
+  }
+  &__btn{
+    margin-top: 20px;
+  }
+}
+.goto-sign-up {
+  &__link{
+    color: $main-color;
+  }
+}
